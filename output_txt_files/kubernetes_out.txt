@@ -1,0 +1,25 @@
+(.devops) andrianajaranaivoarivelo@MacBook-Air-de-Andrianaja-2 project-ml-microservice-kubernetes % ./run_kubernetes.sh
+pod/microserviceml created
+NAME             READY   STATUS    RESTARTS   AGE
+microserviceml   0/1     Pending   0          1s
+error: unable to forward port because pod is not running. Current status=Pending
+
+(.devops) andrianajaranaivoarivelo@MacBook-Air-de-Andrianaja-2 project-ml-microservice-kubernetes % kubectl get pod
+NAME             READY   STATUS              RESTARTS   AGE
+microserviceml   0/1     ContainerCreating   0          52s
+
+(.devops) andrianajaranaivoarivelo@MacBook-Air-de-Andrianaja-2 project-ml-microservice-kubernetes % ./run_kubernetes.sh
+Error from server (AlreadyExists): pods "microserviceml" already exists
+NAME             READY   STATUS    RESTARTS   AGE
+microserviceml   1/1     Running   0          3m15s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
+
+andrianajaranaivoarivelo@MacBook-Air-de-Andrianaja-2 project-ml-microservice-kubernetes % ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
